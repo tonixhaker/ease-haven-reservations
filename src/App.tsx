@@ -13,6 +13,8 @@ import Register from "./pages/Register";
 import ClientsPage from "./pages/admin/ClientsPage";
 import ApartmentsPage from "./pages/admin/ApartmentsPage";
 import ApartmentBookingsPage from "./pages/admin/ApartmentBookingsPage";
+import OwnerApartmentsPage from "./pages/owner/OwnerApartmentsPage";
+import OwnerApartmentBookingsPage from "./pages/owner/OwnerApartmentBookingsPage";
 
 const queryClient = new QueryClient();
 
@@ -35,7 +37,9 @@ const App = () => (
           <Route path="/admin/apartments" element={<ApartmentsPage />} />
           <Route path="/admin/apartments/:id/bookings" element={<ApartmentBookingsPage />} />
           
-          {/* Owner routes will go here */}
+          {/* Owner routes */}
+          <Route path="/owner/apartments" element={<OwnerApartmentsPage />} />
+          <Route path="/owner/apartments/:id/bookings" element={<OwnerApartmentBookingsPage />} />
           
           {/* Not found route */}
           <Route path="*" element={<NotFound />} />
