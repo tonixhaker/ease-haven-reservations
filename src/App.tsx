@@ -10,6 +10,9 @@ import ApartmentsList from "./pages/ApartmentsList";
 import ApartmentDetail from "./pages/ApartmentDetail";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ClientsPage from "./pages/admin/ClientsPage";
+import ApartmentsPage from "./pages/admin/ApartmentsPage";
+import ApartmentBookingsPage from "./pages/admin/ApartmentBookingsPage";
 
 const queryClient = new QueryClient();
 
@@ -27,7 +30,10 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           
-          {/* Admin routes will go here */}
+          {/* Admin routes */}
+          <Route path="/admin/clients" element={<ClientsPage />} />
+          <Route path="/admin/apartments" element={<ApartmentsPage />} />
+          <Route path="/admin/apartments/:id/bookings" element={<ApartmentBookingsPage />} />
           
           {/* Owner routes will go here */}
           
