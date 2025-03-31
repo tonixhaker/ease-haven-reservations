@@ -11,18 +11,18 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Plus, Edit, Trash, Calendar } from "lucide-react";
+import { Plus, Edit, Trash, Calendar, Building } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { mockApartments } from "@/data/mockData";
 
 const OwnerApartmentsPage = () => {
-  // For demo purposes, we're assuming the owner's ID is 1
-  const ownerId = 1;
+  // For demo purposes, we're assuming the owner's ID is owner-1
+  const ownerId = "owner-1";
   const [apartments, setApartments] = useState(
     mockApartments.filter((apt) => apt.ownerId === ownerId)
   );
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     if (window.confirm("Are you sure you want to delete this apartment?")) {
       setApartments(apartments.filter((apt) => apt.id !== id));
     }

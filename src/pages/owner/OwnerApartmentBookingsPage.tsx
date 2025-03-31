@@ -17,7 +17,7 @@ import { mockApartments, mockBookings } from "@/data/mockData";
 
 const OwnerApartmentBookingsPage = () => {
   const { id } = useParams<{ id: string }>();
-  const apartmentId = Number(id);
+  const apartmentId = id || "";
   
   const apartment = mockApartments.find((apt) => apt.id === apartmentId);
   const [bookings, setBookings] = useState(

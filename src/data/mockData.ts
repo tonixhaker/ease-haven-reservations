@@ -1,4 +1,3 @@
-
 export interface Apartment {
   id: string;
   title: string;
@@ -15,6 +14,17 @@ export interface Apartment {
   maxGuests: number;
   rating: number;
   reviewCount: number;
+  ownerId: string;
+}
+
+export interface Booking {
+  id: string;
+  apartmentId: string;
+  clientName: string;
+  checkIn: string;
+  checkOut: string;
+  totalPrice: number;
+  status: "confirmed" | "completed" | "cancelled";
 }
 
 export const mockApartments: Apartment[] = [
@@ -47,7 +57,8 @@ export const mockApartments: Apartment[] = [
     bathrooms: 2,
     maxGuests: 4,
     rating: 4.9,
-    reviewCount: 128
+    reviewCount: 128,
+    ownerId: "owner-1"
   },
   {
     id: "apt-2",
@@ -205,13 +216,59 @@ export const mockApartments: Apartment[] = [
   }
 ];
 
-// Get a list of random apartments
+export const mockBookings: Booking[] = [
+  {
+    id: "booking-1",
+    apartmentId: "apt-1",
+    clientName: "John Smith",
+    checkIn: "2023-12-01",
+    checkOut: "2023-12-08",
+    totalPrice: 1600,
+    status: "completed"
+  },
+  {
+    id: "booking-2",
+    apartmentId: "apt-1",
+    clientName: "Emma Johnson",
+    checkIn: "2023-12-15",
+    checkOut: "2023-12-22",
+    totalPrice: 1600,
+    status: "confirmed"
+  },
+  {
+    id: "booking-3",
+    apartmentId: "apt-2",
+    clientName: "Michael Williams",
+    checkIn: "2023-12-05",
+    checkOut: "2023-12-10",
+    totalPrice: 900,
+    status: "cancelled"
+  },
+  {
+    id: "booking-4",
+    apartmentId: "apt-3",
+    clientName: "Sarah Brown",
+    checkIn: "2023-12-20",
+    checkOut: "2023-12-27",
+    totalPrice: 2100,
+    status: "confirmed"
+  },
+  {
+    id: "booking-5",
+    apartmentId: "apt-4",
+    clientName: "David Lee",
+    checkIn: "2023-12-10",
+    checkOut: "2023-12-15",
+    totalPrice: 1375,
+    status: "completed"
+  }
+];
+
 export const getRandomApartments = (count: number): Apartment[] => {
   const shuffled = [...mockApartments].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
 };
 
-// Get apartment by id
 export const getApartmentById = (id: string): Apartment | undefined => {
   return mockApartments.find(apartment => apartment.id === id);
 };
